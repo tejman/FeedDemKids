@@ -1,0 +1,19 @@
+body{
+  padding-top: 50px;
+}
+
+.nav-justified{
+ margin-top: 5px;
+}
+
+.lunch-stats h2, .feedback h2{
+  display: inline-block;
+}
+
+.funding-status>div{
+  display: inline-block;
+}
+
+.lunch-stats, .feedback{
+  border: 1px solid black;
+}
