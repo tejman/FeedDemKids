@@ -27,3 +27,18 @@ function filter(items, f) {
 	}
 	return output;
 }
+
+function pluck(list, propertyName){
+  var output = [];
+  map(list, function(item){
+      output.push(item[propertyName]);
+  });
+  return output;
+}
+
+function matchValue(list, propertyName, targetValue){
+  var valueArray = pluck(list, propertyName);
+  var matchIndex = $.inArray(targetValue, valueArray);
+
+  return list[matchIndex];
+}
