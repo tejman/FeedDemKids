@@ -10,7 +10,7 @@ $(function() {
     var randomTitleText = "some of the schools you can help NOW!";
     var randomResultTitle = resultTitleTemplate({desc: randomTitleText});
 
-    $(".results").append(randomResultTitle);
+    $(".results").prepend(randomResultTitle);
     $(".results").append(getResult("random"));
     $(".results").append(getResult("random"));
     $(".results").append(getResult("random"));

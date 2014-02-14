@@ -60,7 +60,79 @@
 
 <div class="row divider"></div>
 
-<div class="row results"></div>
+<div class="row results">
+
+  <div class="container" id="filter-bar">
+    <div class="navbar navbar-inverse">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse-filter">
+            <span class="sr-only">Toggle Nav</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+           <span class="navbar-brand">Search Filters</span>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="navbar-collapse-filter">
+          <ul class="nav nav-pills nav-justified">
+            <li class="disabled">
+              <a href="#">Poverty</a>
+              <div class="filter-inputs">
+              <input class="form-control input-sm" id="poverty-min" type="text" placeholder="min">
+              <input class="form-control input-sm" id="poverty-max" type="text" placeholder="max">
+              </div>
+            </li>
+            <li class="disabled">
+              <a href="#">Food Aid</a>
+              <div class="filter-inputs">
+              <input class="form-control input-sm" id="food-min" type="text" placeholder="min">
+              <input class="form-control input-sm" id="food-max" type="text" placeholder="max">
+              </div>
+            </li>
+            <li class="disabled">
+             <a href="find.html">Income</a>
+             <div class="filter-inputs">
+             <input class="form-control input-sm" id="income-min" type="text" placeholder="min">
+             <input class="form-control input-sm" id="income-max" type="text" placeholder="max">
+             </div>
+            </li>
+            <li class="disabled">
+             <a href="maps.html">School Rank</a>
+             <div class="filter-inputs">
+             <input class="form-control input-sm" id="rank-min" type="text" placeholder="min">
+             <input class="form-control input-sm" id="rank-max" type="text" placeholder="max">
+             </div>
+            </li>
+            <li class="disabled">
+             <a href="#">Cost per Lunch</a>
+             <div class="filter-inputs">
+             <input class="form-control input-sm" id="lunchCost-min" type="text" placeholder="min">
+             <input class="form-control input-sm" id="lunchCost-max" type="text" placeholder="max">
+             </div>
+            </li>
+            <li class="disabled">
+              <a href="#"># of Kids</a>
+              <div class="filter-inputs">
+              <input class="form-control input-sm" id="negAccounts-min" type="text" placeholder="min">
+              <input class="form-control input-sm" id="negAccounts-max" type="text" placeholder="max">
+              </div>
+            </li>
+            <li class="disabled">
+             <a href="#">% Raised</a>
+             <div class="filter-inputs">
+             <input class="form-control input-sm" id="percentRaised-min" type="text" placeholder="min">
+             <input class="form-control input-sm" id="percentRaised-max" type="text" placeholder="max">
+             </div>
+            </li>
+            <li id="filter-update"><button class="btn btn-sm">Update</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
 
 <div class="container center-block">
   <ul class="pagination">
@@ -90,15 +162,9 @@
        </ul>
      </div>
 
-      <div class="col-md-3 funding-status">
-        <div class="tray-fill">
-          <img src="http://placehold.it/25x150" alt="">
-          <p>Filled Trays</p>
-        </div>
-        <div class="tray-empty">
-          <img src="http://placehold.it/25x150" alt="">
-          <p>Empty Trays</p>
-        </div>
+      <div class="col-md-8 funding-status">
+        <div class="empty-img"></div>
+        <div class="fill-img" style="height:{{otherStats.percentHeight}}px"></div>
       </div>
     </div>
   </div>

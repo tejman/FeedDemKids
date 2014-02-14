@@ -61,7 +61,7 @@
            <table class="table-hover table-condensed">
              <tr><th>School Rank:</th><td>{{school.Rank}}</td></tr>
              <tr><th>School Deficit:</th><td>hold</td></tr>
-             <tr><th>Cost per Lunch:</th><td>hold</td></tr>
+             <tr><th>Cost per Lunch:</th><td>${{otherStats.lunchCost}}</td></tr>
            </table>
          </div>
          <div class="demographics col-md-7">
@@ -88,19 +88,13 @@
           </div>
           <div class="row">
             <table class="table-hover table-condensed col-md-4">
-              <tr><th>Deliquent Accounts:</th><td>hold</td></tr>
-              <tr><th>Avg Deliquent Balance:</th><td>hold</td></tr>
-              <tr><th>Cost per Lunch:</th><td>hold</td></tr>
+              <tr><th>Deliquent Accounts:</th><td>{{otherStats.negAccounts}}</td></tr>
+              <tr><th>Avg Deliquent Balance:</th><td>{{otherStats.avgBalance}}</td></tr>
+              <tr><th>Cost per Lunch:</th><td>{{otherStatas.lunchCost}}</td></tr>
             </table>
             <div class="col-md-8 funding-status">
-              <div class="tray-fill">
-                <img src="http://placehold.it/25x150" alt="">
-                <p>Filled Trays</p>
-              </div>
-              <div class="tray-empty">
-                <img src="http://placehold.it/25x150" alt="">
-                <p>Empty Trays</p>
-              </div>
+              <div class="empty-img"></div>
+              <div class="fill-img" style="height:{{otherStats.percentHeight}}px"></div>
             </div>
           </div>
         </div>
@@ -148,22 +142,31 @@
         <div class="thumbnail row">
           <img src="http://placehold.it/150x150">
           <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, accusamus!</p>
+            <h3>{{otherStats.teacher.name}}</h3>
+            <p>{{#if otherStats.teacher.grade}}
+                {{otherStats.teacher.grade}} Grade Teacher
+              {{/if}}
+              {{#else}}
+                Kindergarten Teacher
+              {{/else}}
+            </p>
+            <p>"{{otherStats.teacher.phrase}}"</p>
+            <p>{{otherStats.teacher.desc}}</p>
           </div>
         </div>
         <div class="thumbnail row">
           <img src="http://placehold.it/150x150">
           <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, accusamus!</p>
-          </div>
-        </div>
-        <div class="thumbnail row">
-          <img src="http://placehold.it/150x150">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, accusamus!</p>
+            <h3>{{otherStats.student.name}}</h3>
+            <p>{{#if otherStats.student.grade}}
+                {{otherStats.student.grade}} Grade Student
+              {{/if}}
+              {{#else}}
+                Kindergarten Student
+              {{/else}}
+            </p>
+            <p>Favorite Lunch Food: {{otherStats.student.food}}</p>
+            <p>{{otherStats.student.desc}}</p>
           </div>
         </div>
       </div>
@@ -180,6 +183,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="data/demo-data.js"></script>
 <script src="data/geocoded-school-data.js"></script>
+<script src="data/Faker.js"></script>
 <script src="js/utility.js"></script>
 <script src="js/school-page.js"></script>
 
