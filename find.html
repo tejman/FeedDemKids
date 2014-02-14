@@ -79,55 +79,55 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-filter">
           <ul class="nav nav-pills nav-justified">
             <li class="disabled">
-              <a href="#">Poverty</a>
+              <span class="label label-primary">Poverty (%)</span>
               <div class="filter-inputs">
               <input class="form-control input-sm" id="poverty-min" type="text" placeholder="min">
               <input class="form-control input-sm" id="poverty-max" type="text" placeholder="max">
               </div>
             </li>
             <li class="disabled">
-              <a href="#">Food Aid</a>
+              <span class="label label-primary">Food Aid (%)</span>
               <div class="filter-inputs">
               <input class="form-control input-sm" id="food-min" type="text" placeholder="min">
               <input class="form-control input-sm" id="food-max" type="text" placeholder="max">
               </div>
             </li>
             <li class="disabled">
-             <a href="find.html">Income</a>
+             <span class="label label-primary">Income ($)</span>
              <div class="filter-inputs">
              <input class="form-control input-sm" id="income-min" type="text" placeholder="min">
              <input class="form-control input-sm" id="income-max" type="text" placeholder="max">
              </div>
             </li>
             <li class="disabled">
-             <a href="maps.html">School Rank</a>
+             <span class="label label-primary">School Rank (%)</span>
              <div class="filter-inputs">
              <input class="form-control input-sm" id="rank-min" type="text" placeholder="min">
              <input class="form-control input-sm" id="rank-max" type="text" placeholder="max">
              </div>
             </li>
             <li class="disabled">
-             <a href="#">Cost per Lunch</a>
+             <span class="label label-primary">Cost per Lunch ($)</span>
              <div class="filter-inputs">
              <input class="form-control input-sm" id="lunchCost-min" type="text" placeholder="min">
              <input class="form-control input-sm" id="lunchCost-max" type="text" placeholder="max">
              </div>
             </li>
             <li class="disabled">
-              <a href="#"># of Kids</a>
+              <span class="label label-primary"># of Kids</span>
               <div class="filter-inputs">
               <input class="form-control input-sm" id="negAccounts-min" type="text" placeholder="min">
               <input class="form-control input-sm" id="negAccounts-max" type="text" placeholder="max">
               </div>
             </li>
             <li class="disabled">
-             <a href="#">% Raised</a>
+             <span class="label label-primary">% Raised</span>
              <div class="filter-inputs">
              <input class="form-control input-sm" id="percentRaised-min" type="text" placeholder="min">
              <input class="form-control input-sm" id="percentRaised-max" type="text" placeholder="max">
              </div>
             </li>
-            <li id="filter-update"><button class="btn btn-sm">Update</button></li>
+            <li id="filter-update"><button class="btn btn-sm btn-success">UPDATE</button></li>
           </ul>
         </div>
       </div>
@@ -147,7 +147,7 @@
 </script>
 
 <script id="result-item" type="handlebars">
-  <div class="result-item container col-md-8 col-md-offset-2" data-id="{{BCode}}">
+  <div class="result-item container col-md-8 col-md-offset-2" data-id="{{school.BCode}}">
     <div class="row">
 
      <div class="school-pic col-md-3">
@@ -156,13 +156,26 @@
 
      <div class="school-prof col-md-6">
        <ul class="list-group">
-         <li class="list-group-item">{{BName}}</li>
-         <li class="list-group-item">{{DName}}</li>
-         <li class="list-group-item">{{State}}</li>
+         <li class="list-group-item">
+           <span class="badge">School</span>
+           {{school.BName}}
+         </li>
+         <li class="list-group-item">
+           <span class="badge">District</span>
+           {{school.DName}}
+         </li>
+         <li class="list-group-item">
+           <span class="badge">State</span>
+           {{school.State}}
+         </li>
+         <li class="list-group-item">
+           <span class="badge">$ Needed</span>
+           ${{otherStats.currentBalance}}
+         </li>
        </ul>
      </div>
 
-      <div class="col-md-8 funding-status">
+      <div class="col-md-2 col-md-offset-1 funding-status">
         <div class="empty-img"></div>
         <div class="fill-img" style="height:{{otherStats.percentHeight}}px"></div>
       </div>
@@ -182,6 +195,7 @@
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="data/Faker.js"></script>
 <script src="data/demo-data.js"></script>
 <script src="data/geocoded-school-data.js"></script>
 <script src="js/utility.js"></script>

@@ -58,11 +58,12 @@ img{
 }
 
 .result-item{
-  background-color: #f9d6c0;
+  background-color: #eee;
   padding: 10px;
   border-radius: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
+  border: 1px solid #999;
 }
 
 .pagination{
@@ -72,6 +73,8 @@ img{
 .funding-status{
   position: relative;
   height: 156px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .funding-status>div{
@@ -86,7 +89,11 @@ img{
 
 .empty-img{
   opacity: .25;
-  z-index: -999;
+  z-index: 998;
+}
+
+.fill-img{
+  z-index: 999;
 }
 
 .filter-inputs>input{
@@ -94,9 +101,25 @@ img{
   max-width: 80%;
 }
 
+#filter-bar .label{
+  margin: 2px auto;
+}
+
+#filter-bar li{
+  text-align: center;
+}
+
+.filter-inputs{
+  margin-bottom: 5px;
+}
+
 #navbar-collapse-filter a{
   font-size: 12px;
   color: black;
+}
+
+#filter-bar{
+  display: none;
 }
 
 #filter-update{
@@ -106,9 +129,22 @@ img{
 
 #filter-bar .navbar-brand{
   font-size: 14px;
-  color: black;
+  color: #FFF;
 }
 
 #filter-bar .navbar-inverse{
-  background-color: orange;
+  background-color: #2C3E50;
+}
+
+.page-content{
+  text-align: center;
+}
+
+.content-header{
+  margin-bottom: 20px;
+}
+
+.content-header .btn{
+  margin-left: 60px;
+  margin-top: -15px;
 }

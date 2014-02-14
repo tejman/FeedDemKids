@@ -1,3 +1,4 @@
+//DATA DEFINITIONS
 var geocodedSchoolData = [
   {
     "Name":2,
@@ -5723,59 +5724,7 @@ var geocodedSchoolData = [
     "gap-zs-w-em":-99,
     "gapi-zs-w-em":-99
   },
-  {
-    "Name":248,
-    "Code":"0",
-    "Number":476,
-    "Cycle":2013,
-    "ISDCode":28,
-    "ISDName":"Traverse Bay Area ISD",
-    "DCode":28010,
-    "DName":"Traverse City Area Public Schools",
-    "BCode":"7573",
-    "BName":"Courtade Elementary School",
-    "GradeList":"KG,1,2,3,4,5",
-    "State":"MI",
-    "zip":"49696",
-    "Lat":44.701445,
-    "Lng":-85.506129,
-    "Rank":82,
-    "pp-av-m-em":26.79097046,
-    "zs-av-m-em":-0.276396414,
-    "zsi-m-em":-0.5641,
-    "c-m-em":0.092696629,
-    "ci-m-em":-0.280358738,
-    "gap-zs-m-em":-1.813438397,
-    "gapi-zs-m-em":0.883802728,
-    "pp-av-r-em":78.31964211,
-    "zs-av-r-em":0.165458105,
-    "zsi-r-em":0.544,
-    "c-r-em":0.466292135,
-    "ci-r-em":1.252253979,
-    "gap-zs-r-em":-1.986492,
-    "gapi-zs-r-em":0.526750165,
-    "pp-av-s-em":15.09,
-    "zs-av-s-em":0.1627,
-    "zsi-s-em":0.4296,
-    "c-s-em":0.0033,
-    "zsi-b1-s-em":0.1774,
-    "gap-zs-s-em":-1.89665,
-    "gapi-zs-s-em":0.420078934,
-    "pp-av-t-em":34.88,
-    "zs-av-t-em":0.32080155,
-    "zsi-t-em":0.8077,
-    "c-t-em":0.0326,
-    "zsi-b1-t-em":0.5744,
-    "gap-zs-t-em":-1.898764341,
-    "gapi-zs-t-em":0.328699148,
-    "pp-av-w-em":57.75482759,
-    "zs-av-w-em":0.209417241,
-    "zsi-w-em":0.5748,
-    "c-w-em":0.2719,
-    "zsi-b1-w-em":2.3243,
-    "gap-zs-w-em":-1.924331034,
-    "gapi-zs-w-em":0.522565781
-  },
+  
   {
     "Name":251,
     "Code":"0",
@@ -11288,59 +11237,7 @@ var geocodedSchoolData = [
     "gap-zs-w-em":-99,
     "gapi-zs-w-em":-99
   },
-  {
-    "Name":526,
-    "Code":"0",
-    "Number":1053,
-    "Cycle":2013,
-    "ISDCode":28,
-    "ISDName":"Traverse Bay Area ISD",
-    "DCode":28010,
-    "DName":"Traverse City Area Public Schools",
-    "BCode":"661",
-    "BName":"Cherry Knoll Elementary School",
-    "GradeList":"KG,1,2,3,4,5",
-    "State":"MI",
-    "zip":"49696",
-    "Lat":44.712365,
-    "Lng":-85.556607,
-    "Rank":62,
-    "pp-av-m-em":26.46373102,
-    "zs-av-m-em":-0.290682863,
-    "zsi-m-em":-0.598,
-    "c-m-em":0.214285714,
-    "ci-m-em":0.298361325,
-    "gap-zs-m-em":-1.92106269,
-    "gapi-zs-m-em":0.300473226,
-    "pp-av-r-em":74.18967462,
-    "zs-av-r-em":0.059369414,
-    "zsi-r-em":0.2475,
-    "c-r-em":0.478632479,
-    "ci-r-em":1.339960758,
-    "gap-zs-r-em":-2.046053145,
-    "gapi-zs-r-em":0.134125608,
-    "pp-av-s-em":17.7940678,
-    "zs-av-s-em":0.178562712,
-    "zsi-s-em":0.4679,
-    "c-s-em":0.0512,
-    "zsi-b1-s-em":0.8212,
-    "gap-zs-s-em":-1.992067797,
-    "gapi-zs-s-em":-0.050655139,
-    "pp-av-t-em":33.61793103,
-    "zs-av-t-em":0.170286207,
-    "zsi-t-em":0.4524,
-    "c-t-em":-0.0785,
-    "zsi-b1-t-em":-0.9708,
-    "gap-zs-t-em":-2.016744828,
-    "gapi-zs-t-em":-0.258560615,
-    "pp-av-w-em":46.21655462,
-    "zs-av-w-em":-0.002706723,
-    "zsi-w-em":0.0315,
-    "c-w-em":0.1543,
-    "zsi-b1-w-em":1.3336,
-    "gap-zs-w-em":-2.195642017,
-    "gapi-zs-w-em":-1.000797399
-  },
+  
   {
     "Name":530,
     "Code":"0",
@@ -13779,4 +13676,59 @@ var geocodedSchoolData = [
     "gap-zs-w-em":-1.771014365,
     "gapi-zs-w-em":1.383411765
   }
-]
+];
+
+//OBJECT DEFINITIONS
+var getFullObject = function(schoolCode) {
+  //takes a school's BCode and returns an new object with the school object as well as the corresponding zip code objects
+  var schoolObject = matchValue(geocodedSchoolData, "BCode", schoolCode);
+  var myZip = schoolObject.zip;
+  var zipObject = matchValue(demoData, "zip", myZip);
+ 
+  var fullObject = {
+    school: schoolObject,
+    zipEstimate: zipObject[0],
+    zipPercent: zipObject[1],
+    otherStats: schoolObject.faked,
+  };
+
+  return fullObject
+};
+
+var randomOtherStats = function() {
+  var stats = {
+    teacher: {},
+    student: {},
+    feedback: {}
+  };
+
+  var foodArray = ["Chicken Nuggets", "Cheese Pizza","Pepperoni Pizza", "Salisbury Steak", "Tater Tots", "Pasta", "PB&J", "Chocolate Chip Cookies", "Soft Pretzels", "Chicken Sandwich", "Hot Dogs", "Burgers", "Grilled Cheese"]
+
+  stats.negAccounts = Math.floor(Math.random()*40);
+  stats.avgBalance = Math.floor(Math.random()*20)
+  stats.totalBalance = stats.negAccounts*stats.avgBalance;
+  stats.percentRaised = Math.random()*0.9;
+  stats.percentHeight = (stats.percentRaised*156).toFixed(0);
+  stats.totalRaised = stats.totalBalance*stats.percentRaised;
+  stats.currentBalance = (stats.totalBalance-stats.totalRaised).toFixed(2);
+  stats.lunchCost = (Math.random()*1.5).toFixed(2);
+
+  stats.teacher.name = Faker.Name.findName();
+  stats.teacher.grade = Math.floor(Math.random()*6);
+  stats.teacher.phrase = Faker.Company.catchPhrase();
+  stats.teacher.desc = "Teacher Of The Month - February 2014";
+
+  stats.student.name = Faker.Name.findName();
+  stats.student.grade = Math.floor(Math.random()*6);
+  stats.student.food = Faker.random.array_element(foodArray);
+  stats.student.desc = "This kid is smart as hell";
+  
+  return stats;
+};
+
+
+
+//MAIN CODE to run on load
+for(var i=0;i<geocodedSchoolData.length; i++){
+    geocodedSchoolData[i].faked = randomOtherStats();
+};

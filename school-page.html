@@ -47,11 +47,26 @@
          </div>
          <div class="school-prof col-md-7">
            <ul class="list-group">
-             <li class="list-group-item">{{school.BName}}</li>
-             <li class="list-group-item">{{school.DName}}</li>
-             <li class="list-group-item">{{school.ISDName}}</li>
-             <li class="list-group-item">{{school.zip}}</li>
-             <li class="list-group-item">{{school.State}}</li>
+            <li class="list-group-item">
+               <span class="badge">School</span>
+               {{school.BName}}
+             </li>
+             <li class="list-group-item">
+               <span class="badge">District</span>
+               {{school.DName}}
+             </li>
+             <li class="list-group-item">
+               <span class="badge">Intermediate Disctrict</span>
+               {{school.ISDName}}
+             </li>
+             <li class="list-group-item">
+               <span class="badge">Zip</span>
+               {{school.zip}}
+             </li>
+             <li class="list-group-item">
+               <span class="badge">State</span>
+               {{school.State}}
+             </li>
              <li class="list-group-item"><a href="#">Link to school webpage</a></li>
            </ul>
          </div>
@@ -79,20 +94,20 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 page-content">
       <div class="row">
         <div class="col-md-10 col-md-offset-1 container lunch-stats">
-          <div class="row">
+          <div class="row content-header">
             <h2>We need Lunch Money!</h2>
             <a href="#" class="btn btn-success">Feed!</a>
           </div>
           <div class="row">
-            <table class="table-hover table-condensed col-md-4">
+            <table class="table-hover table-condensed col-md-4 col-md-offset-2">
               <tr><th>Deliquent Accounts:</th><td>{{otherStats.negAccounts}}</td></tr>
               <tr><th>Avg Deliquent Balance:</th><td>{{otherStats.avgBalance}}</td></tr>
-              <tr><th>Cost per Lunch:</th><td>{{otherStatas.lunchCost}}</td></tr>
+              <tr><th>Cost per Lunch:</th><td>${{otherStats.lunchCost}}</td></tr>
             </table>
-            <div class="col-md-8 funding-status">
+            <div class="col-md-4 col-md-offset-2 funding-status">
               <div class="empty-img"></div>
               <div class="fill-img" style="height:{{otherStats.percentHeight}}px"></div>
             </div>
@@ -101,12 +116,12 @@
       </div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1 container feedback">
-          <div class="row">
+          <div class="row content-header">
             <h2>Feedback</h2>
             <a href="#" class="btn btn-success">Holla!</a>
           </div>
           <div class="row">
-            <ul class="comments">
+            <ul class="comments list-unstyled">
               <li>
                 <img src="http://placehold.it/50x50" alt="">
                 <div>
@@ -150,7 +165,7 @@
                 Kindergarten Teacher
               {{/else}}
             </p>
-            <p>"{{otherStats.teacher.phrase}}"</p>
+            <p>Favorite Quote: "{{otherStats.teacher.phrase}}"</p>
             <p>{{otherStats.teacher.desc}}</p>
           </div>
         </div>
@@ -181,9 +196,9 @@
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="data/Faker.js"></script>
 <script src="data/demo-data.js"></script>
 <script src="data/geocoded-school-data.js"></script>
-<script src="data/Faker.js"></script>
 <script src="js/utility.js"></script>
 <script src="js/school-page.js"></script>
 
