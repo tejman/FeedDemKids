@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <title>Search Page</title>
 </head>
 <body>
@@ -26,8 +26,8 @@
       <ul class="nav nav-pills nav-justified">
         <li><a href="#">Home</a></li>
         <li><a href="#">Trending</a></li>
-        <li><a href="#">Find My School</a></li>
-        <li><a href="#">Maps</a></li>
+        <li><a href="find.html">Find My School</a></li>
+        <li><a href="maps.html">Maps</a></li>
         <li><a href="#">About</a></li>
       </ul>
     </div>
@@ -39,7 +39,7 @@
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search by School Name...">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        <button id="search-button" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
       </span>
     </div>
   </div>
@@ -47,7 +47,7 @@
   <div class="col-md-1 or-elem"><p>OR</p></div>
 
   <div class="col-md-3">
-    <select class="form-control" placeholder="Select State">
+    <select id="select-state" class="form-control" placeholder="Select State">
       <option value="0" selected="selected"> - Browse by State - </option>
       <option value="CO">Colorado</option>
       <option value="DE">Delaware</option>
@@ -56,14 +56,70 @@
       <option value="WV">West Virginia</option>
     </select>
   </div>
+</div>
 
+<div class="row divider"></div>
+
+<div class="row results"></div>
+
+<div class="container center-block">
+  <ul class="pagination">
+    <li class="prev-arrow"><a href="#">&laquo;</a></li>
+    <li class="next-arrow"><a href="#">&raquo;</a></li>
+  </ul>
 </div>
 
 
+<script id="result-title" type="handlebars">
+  <div class="query col-md-4 col-md-offset-4"><strong>Showing </strong><span>{{desc}}</span></div>
+</script>
+
+<script id="result-item" type="handlebars">
+  <div class="result-item container col-md-8 col-md-offset-2" data-id="{{BCode}}">
+    <div class="row">
+
+     <div class="school-pic col-md-3">
+       <img src="http://placehold.it/225x150" alt="">
+     </div>
+
+     <div class="school-prof col-md-6">
+       <ul class="list-group">
+         <li class="list-group-item">{{BName}}</li>
+         <li class="list-group-item">{{DName}}</li>
+         <li class="list-group-item">{{State}}</li>
+       </ul>
+     </div>
+
+      <div class="col-md-3 funding-status">
+        <div class="tray-fill">
+          <img src="http://placehold.it/25x150" alt="">
+          <p>Filled Trays</p>
+        </div>
+        <div class="tray-empty">
+          <img src="http://placehold.it/25x150" alt="">
+          <p>Empty Trays</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</script>
+
+<script id="pagination" type="handlebars">
+  {{#each pageNum}}
+  <li data-page={{this}}><a href="#">{{this}}</a></li>
+  {{/each}}
+</script>
+
+
+
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="utility.js"></script>
-<script src="main.js"></script>
+<script src="data/demo-data.js"></script>
+<script src="data/geocoded-school-data.js"></script>
+<script src="js/utility.js"></script>
+<script src="js/find.js"></script>
 
 </body>
 </html>

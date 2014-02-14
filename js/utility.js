@@ -37,8 +37,9 @@ function pluck(list, propertyName){
 }
 
 function matchValue(list, propertyName, targetValue){
-  var valueArray = pluck(list, propertyName);
-  var matchIndex = $.inArray(targetValue, valueArray);
+  var matchArray = filter(list, function(item){
+    return item[propertyName]===targetValue;
+  });
 
-  return list[matchIndex];
+  return matchArray.length>1 ? matchArray : matchArray[0];
 }
